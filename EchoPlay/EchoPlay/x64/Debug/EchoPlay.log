@@ -1,7 +1,0 @@
-﻿  EchoPlay.cpp
-D:\IT\вижал студио\С++\EchoPlay-main\EchoPlay\EchoPlay.cpp(40,17): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
-D:\IT\вижал студио\С++\EchoPlay-main\EchoPlay\EchoPlay.cpp(81,19): warning C4244: инициализация: преобразование "QWORD" в "int", возможна потеря данных
-D:\IT\вижал студио\С++\EchoPlay-main\EchoPlay\EchoPlay.cpp(87,23): warning C4244: инициализация: преобразование "QWORD" в "int", возможна потеря данных
-D:\IT\вижал студио\С++\EchoPlay-main\EchoPlay\EchoPlay.cpp(116,17): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
-D:\IT\вижал студио\С++\EchoPlay-main\EchoPlay\EchoPlay.cpp(208,1): warning C4715: TrekOn: значение возвращается не при всех путях выполнения
-  EchoPlay.vcxproj -> D:\IT\вижал студио\С++\EchoPlay-main\EchoPlay\x64\Debug\EchoPlay.exe
