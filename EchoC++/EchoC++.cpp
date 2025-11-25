@@ -1,8 +1,13 @@
 ﻿#include <iostream>
-#include <bass.h>
 #include <Windows.h>
 
 using namespace std;
+
+#include <bass.h>
+#include "json.hpp"
+
+using json = nlohmann::json;
+
 
 void LongInterface(HCHANNEL stream, int TimeAll);
 void PauseInterface(HCHANNEL stream);
@@ -18,6 +23,8 @@ int main() {
 
     //cout << "Hello world" << std::endl;
 
+    cout << string(48, ' ') << "EchoPlay v1.1.1\n" << string(28, '\n');
+
     // Инициализация BASS
     if (!BASS_Init(-1, 44100, 0, 0, NULL)) {
         cout << "Ошибка инициализации BASS\n";
@@ -26,11 +33,9 @@ int main() {
     HSTREAM stream;
     HSTREAM& STREAM = stream;
 
-    cout << string(48, ' ') << "EchoPlay v1.1.1\n" << string(28, '\n');
-
     // Загрузка трека
 
-    string t = "аудио/POLMATERI_-_YArche_zvjozd_73991388.mp3";
+    string t = "aydio/POLMATERI_-_Yarche_zvjozd.mp3";
     TrekOn(STREAM, t);
 
     int val = 5;                                 //громкость звука
@@ -79,14 +84,14 @@ int main() {
             Pause(stream, 150);
             int h = BASS_ChannelGetPosition(stream, BASS_POS_BYTE) + BASS_ChannelSeconds2Bytes(stream, 5);
             BASS_ChannelSetPosition(stream, h, BASS_POS_BYTE);
-            BASS_ChannelPause(stream);
+            //BASS_ChannelPause(stream);
             Interface(val, stream, TimeAll);
         }
         if (GetAsyncKeyState(VK_LEFT/* < */) & 0x8000) {
             Pause(stream, 150);
             int h = BASS_ChannelGetPosition(stream, BASS_POS_BYTE) - BASS_ChannelSeconds2Bytes(stream, 5);
             BASS_ChannelSetPosition(stream, h, BASS_POS_BYTE);
-            BASS_ChannelPause(stream);
+            //BASS_ChannelPause(stream);
             Interface(val, stream, TimeAll);
         }
         if (TimeI == 10) {
@@ -102,10 +107,6 @@ int main() {
     BASS_Free();
     return 0;
 }
-
-
-
-
 //интерфейс длины трека
 void LongInterface(HCHANNEL stream, int TimeAll) {
     int TimeNow = BASS_ChannelBytes2Seconds(stream, BASS_ChannelGetPosition(stream, BASS_POS_BYTE));          //время сейчас
@@ -197,7 +198,3 @@ bool TrekOn(HSTREAM& stream, string t) {
         return 1;
     }
 }
-
-
-
-
